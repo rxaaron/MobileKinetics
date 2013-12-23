@@ -1,0 +1,7 @@
+.blah{opacity:1;}
+
+.gone{opacity:0; height:0}
+
+div{-webkit-transition:opacity 0.5s;}
+
+
