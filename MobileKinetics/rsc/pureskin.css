@@ -968,7 +968,7 @@ margin: 7px 2px;
 }
 
 div{
-    -webkit-transition: visibility 0.3s, opacity 0.25s;
+    -webkit-transition: visibility 0.15s, opacity 0.1s;
 }
 
 /* end from PURE menu.css ***********************************/

@@ -23,21 +23,21 @@
                     <a class="pure-menu-heading" href="http://gmapserver.grcs.local/kinetics/">Start Over</a>
                     <a class="pure-menu-subheading">New Dose</a>
                     <ul>
-                        <li id="newdemolist"><a href="#newdemographics">Demographics</a></li>
-                        <li id="goalslist"><a href="#goals">Goals</a></li>
-                        <li id="calculatelist"><a href="#calculateddose">Calculation</a></li>
-                        <li id="newplanlist"><a href="#newplan">Plan</a></li>
+                        <li id="newdemolist"><a href="#newdemographics" onclick="divchange('newdemotab','newdemolist');">Demographics</a></li>
+                        <li id="goalslist"><a href="#goals" onclick="divchange('goalstab','goalslist');">Goals</a></li>
+                        <li id="calculatelist"><a href="#calculateddose" onclick="divchange('calculatetab','calculatelist');">Calculation</a></li>
+                        <li id="newplanlist"><a href="#newplan" onclick="divchange('newplantab','newplanlist');">Plan</a></li>
                     </ul>
                     <a class="pure-menu-subheading">Adjustment</a>
                     <ul>
-                        <li id="adjdemolist"><a href="#adjdemographics">Demographics</a></li>
-                        <li id="resultslist"><a href="#results">Lab Results</a></li>
-                        <li id="adjdoselist"><a href="#adjusteddose">Adjustment</a></li>
-                        <li id="adjplanlist"><a href="#adjplan">Plan</a></li>
+                        <li id="adjdemolist"><a href="#adjdemographics" onclick="divchange('adjdemotab','adjdemolist');">Demographics</a></li>
+                        <li id="resultslist"><a href="#results" onclick="divchange('resultstab','resultslist');">Lab Results</a></li>
+                        <li id="adjdoselist"><a href="#adjusteddose" onclick="divchange('adjdosetab','adjdoselist');">Adjustment</a></li>
+                        <li id="adjplanlist"><a href="#adjplan" onclick="divchange('adjplantab','adjplanlist');">Plan</a></li>
                     </ul>
                     <a class="pure-menu-subheading">Follow-Up</a>
                     <ul>
-                        <li id="pknotelist"><a href="#pknote">PK Note</a></li>
+                        <li id="pknotelist"><a href="#pknote" onclick="divchange('pknotetab','pknotelist');">PK Note</a></li>
                     </ul>
                 </div>
                
@@ -46,8 +46,16 @@
                 
             </div>
             <div class="content" id="pages">
-                <div class="pure-visible" id="starthere">This is where we start!  We love starting here!<a href="#" onclick="divchange('nextpage','adjdemolist');">Next!</a></div>
-                <div class="pure-hidden" id="nextpage">This is the second page we are trying.  <a href="#" onclick="divchange('starthere','pknotelist');">Go Back!</a></div>
+                <div class="pure-visible" id="starttab">This is where we start!  We love starting here!</div>
+                <div class="pure-hidden" id="newdemotab">This is the second page we are trying, called new demo list.</div>
+                <div class="pure-hidden" id="goalstab">This is where we pick our goals for the new drug.</div>
+                <div class="pure-hidden" id="calculatetab">We doing some math here.</div>
+                <div class="pure-hidden" id="newplantab">Plan of action for new dosing.</div>
+                <div class="pure-hidden" id="adjdemotab">Demographics for our repeat offenders.</div>
+                <div class="pure-hidden" id="resultstab">Lab results are entered here.</div>
+                <div class="pure-hidden" id="adjdosetab">We see the calculated adjustments.</div>
+                <div class="pure-hidden" id="adjplantab">This is the plan for dose adjustments.</div>
+                <div class="pure-hidden" id="pknotetab">Hopefully this tab will do something.</div>
             </div>
         </div>
     </body>

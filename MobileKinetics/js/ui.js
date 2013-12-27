@@ -39,7 +39,7 @@ function divchange(fadein,menuselect){
     for(var i=0; i<hidedivs.length; i++){
         hidedivs[i].className='pure-hidden';
     }
-    setTimeout(function(){document.getElementById(fadein).className="pure-visible";},300);
+    setTimeout(function(){document.getElementById(fadein).className="pure-visible";},150);
     var clearmenu = document.getElementById('menu').getElementsByTagName('li');
     for(var j=0; j<clearmenu.length; j++){
         clearmenu[j].className='';
