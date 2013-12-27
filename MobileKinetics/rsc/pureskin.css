@@ -950,11 +950,27 @@ margin: 7px 2px;
 
 .pure-top-bar a{
     font-size: 20px;
-    text-transform: uppercase;
     display: block;
     line-height: 1.5em;
     padding: 0.35em 1.4em;
 }
+
+.pure-hidden{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.pure-visible{
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
+div{
+    -webkit-transition: visibility 0.3s, opacity 0.25s;
+}
+
 /* end from PURE menu.css ***********************************/
 /* from PURE menu-responsive.css ****************************/
 /* RESPONSIVE */

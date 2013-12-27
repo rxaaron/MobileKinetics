@@ -33,3 +33,16 @@
     };
 
 }(this, this.document));
+
+function divchange(fadein,menuselect){
+    var hidedivs = document.getElementById('pages').getElementsByTagName('div');
+    for(var i=0; i<hidedivs.length; i++){
+        hidedivs[i].className='pure-hidden';
+    }
+    setTimeout(function(){document.getElementById(fadein).className="pure-visible";},300);
+    var clearmenu = document.getElementById('menu').getElementsByTagName('li');
+    for(var j=0; j<clearmenu.length; j++){
+        clearmenu[j].className='';
+    }
+    document.getElementById(menuselect).className='pure-menu-selected';
+};
