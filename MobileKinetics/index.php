@@ -6,8 +6,8 @@
         <title>Encore Dosing Calculator</title>
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css" />
-        <link rel="stylesheet" href="rsc/pureskin.css" type="text/css" />
         <link rel="stylesheet" href="rsc/side-menu.css" type="text/css" />
+        <link rel="stylesheet" href="rsc/pureskin.css" type="text/css" />
         <link rel="shortcut icon" href="rsc/favicon.ico" />
     </head>
     <body class="pure-skin-gmap">
@@ -46,7 +46,21 @@
                 
             </div>
             <div class="content" id="pages">
-                <div class="pure-visible" id="starttab">This is where we start!  We love starting here!</div>
+                <div class="pure-visible" id="starttab">
+                    <h2>Welcome!</h2>
+                    <h4>Quick instructions for use:</h4>
+                    <ul>
+                        <li>Buttons with the <i class="fa fa-signal"></i> icon require Internet service.</li>
+                        <li>There are next and previous buttons at the bottom of each page.</li>
+                        <li>You can jump to a specific section by opening the menu using the <span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-bars fa-stack-1x fa-inverse"></span></i> button in the upper-left.</li>
+                        <li>Most of the time you should follow the page order to go forward.  Each new page requires the data from the previous page.</li>
+                        <li>Extra information can be found by clicking the <i class="fa fa-info-circle"></i> icon.</li>
+                        <li><i class="fa fa-envelope"></i> Send questions or comments to <a href="mailto:taylor@myvalleyrx.com">Aaron Taylor</a></li>
+                    </ul>
+                    
+                        <button class="pure-button pure-button-primary pure-button-fixed-width" onclick="divchange('newdemotab','newdemolist');">New<br>Dosing</button><br><br>
+                        <button class="pure-button pure-button-primary pure-button-fixed-width" onclick="divchange('adjdemotab','adjdemolist');">Dose<br>Adjustment</button>
+                </div>
                 <div class="pure-hidden" id="newdemotab">This is the second page we are trying, called new demo list.</div>
                 <div class="pure-hidden" id="goalstab">This is where we pick our goals for the new drug.</div>
                 <div class="pure-hidden" id="calculatetab">We doing some math here.</div>

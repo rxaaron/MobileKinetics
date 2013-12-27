@@ -39,10 +39,12 @@ function divchange(fadein,menuselect){
     for(var i=0; i<hidedivs.length; i++){
         hidedivs[i].className='pure-hidden';
     }
-    setTimeout(function(){document.getElementById(fadein).className="pure-visible";},150);
+    setTimeout(function(){window.scroll(0,0);},210);
+    setTimeout(function(){document.getElementById(fadein).className="pure-visible";},225);
     var clearmenu = document.getElementById('menu').getElementsByTagName('li');
     for(var j=0; j<clearmenu.length; j++){
         clearmenu[j].className='';
     }
     document.getElementById(menuselect).className='pure-menu-selected';
+    
 };

@@ -968,7 +968,7 @@ margin: 7px 2px;
 }
 
 div{
-    -webkit-transition: visibility 0.15s, opacity 0.1s;
+    -webkit-transition: visibility 0.21s, opacity 0.2s;
 }
 
 /* end from PURE menu.css ***********************************/
@@ -988,3 +988,15 @@ div{
 
 }
 /* end from menu-responsive.css ******************/
+    
+.content{
+    margin-left: 1.2em;
+}
+
+.content a{
+    color: #777;
+}
+
+.pure-button-fixed-width{
+    width:240px;
+}
