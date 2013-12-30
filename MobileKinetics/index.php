@@ -37,7 +37,7 @@
                     </ul>
                     <a class="pure-menu-subheading">Follow-Up</a>
                     <ul>
-                        <li id="pknotelist"><a href="#pknote" onclick="divchange('pknotetab','pknotelist');">PK Note</a></li>
+                        <li id="pknotelist"><a href="#pknote" onclick="divchange('pknotetab','pknotelist');">PK Note <i class="fa fa-signal"></i></a></li>
                     </ul>
                 </div>
                
@@ -50,11 +50,12 @@
                     <h2>Welcome!</h2>
                     <h4>Quick instructions for use:</h4>
                     <ul>
-                        <li>Buttons with the <i class="fa fa-signal"></i> icon require Internet service.</li>
+                        <li>Items with <i class="fa fa-signal"></i> require Internet service.</li>
                         <li>There are next and previous buttons at the bottom of each page.</li>
-                        <li>You can jump to a specific section by opening the menu using the <span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-bars fa-stack-1x fa-inverse"></span></i> button in the upper-left.</li>
+                        <li>You can jump to a specific section by opening the menu using <span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-bars fa-stack-1x fa-inverse"></span></i> in the upper-left.</li>
                         <li>Most of the time you should follow the page order to go forward.  Each new page requires the data from the previous page.</li>
-                        <li>Extra information can be found by clicking the <i class="fa fa-info-circle"></i> icon.</li>
+                        <li>Extra information for an item can be found by clicking <i onclick="moreinfo('infoexample','show');" class="fa fa-info-circle"></i> .</li>
+                        <div id="infoexample" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infoexample','hide');"></i>The information will appear below the item, similar to this.  Some of the extra information may contain links to outside websites, especially when guidelines are involved.</div>
                         <li><i class="fa fa-envelope"></i> Send questions or comments to <a href="mailto:taylor@myvalleyrx.com">Aaron Taylor</a></li>
                     </ul>
                     

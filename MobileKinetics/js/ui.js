@@ -48,3 +48,11 @@ function divchange(fadein,menuselect){
     document.getElementById(menuselect).className='pure-menu-selected';
     
 };
+
+function moreinfo(divname,action){
+    if(action==="show"){
+        document.getElementById(divname).className='info-visible';
+    }else if(action==="hide"){
+        document.getElementById(divname).className='info-hidden';
+    }
+}

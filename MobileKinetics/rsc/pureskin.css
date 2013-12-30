@@ -1000,3 +1000,27 @@ div{
 .pure-button-fixed-width{
     width:240px;
 }
+
+.info-hidden{
+    display: none;
+}
+
+.info-visible{
+    display: block;
+    padding: 15px 35px 15px 15px;
+    border: 1px solid #3355ba;
+    border-radius:4px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #ced8f6;
+    color: #000;
+}
+
+.info-close{
+    display: block;
+    position: relative;
+    top: -2px;
+    right: -21px;
+    padding: 0px;
+    float:right;
+}
