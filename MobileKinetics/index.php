@@ -59,11 +59,59 @@
                         <li><i class="fa fa-envelope"></i> Send questions or comments to <a href="mailto:taylor@myvalleyrx.com">Aaron Taylor</a></li>
                     </ul>
                     
-                        <button class="pure-button pure-button-primary pure-button-fixed-width" onclick="divchange('newdemotab','newdemolist');">New<br>Dosing</button><br><br>
-                        <button class="pure-button pure-button-primary pure-button-fixed-width" onclick="divchange('adjdemotab','adjdemolist');">Dose<br>Adjustment</button>
+                        <button class="pure-button pure-button-primary pure-button-half-width" onclick="divchange('newdemotab','newdemolist');">New<br>Dosing</button>     
+                        <button class=" pure-button-half-width pure-button pure-button-primary" onclick="divchange('adjdemotab','adjdemolist');">Dose<br>Adjustment</button>
                 </div>
-                <div class="pure-hidden" id="newdemotab">This is the second page we are trying, called new demo list.</div>
-                <div class="pure-hidden" id="goalstab">This is where we pick our goals for the new drug.</div>
+                <div class="pure-hidden" id="newdemotab">
+                    <form class="pure-form pure-form-stacked">
+                        <fieldset>
+                            <legend>Demographics</legend>
+                            <div class="pure-control-group">
+                                <label for="newnursinghome">Nursing Home</label>
+                                <select class="pure-input-1" id="newnursinghome">
+                                    <option value="brier">The Brier</option>
+                                    <option value="manor">Greenbrier Manor</option>
+                                    <option value="springfield">Springfield Center</option>
+                                </select>
+                            </div>
+                            <div class="pure-control-group">
+                                <label for="newfirstname">First Name</label>
+                                <input class="pure-input-1" id="newfirstname" type="text" placeholder="First Name">
+                            </div>
+                            <div class="pure-control-group">
+                                <label for="newlastname">Last Name</label>
+                                <input class="pure-input-1" id="newlastname" type="text" placeholder="Last Name">
+                            </div>
+                            <div class="pure-control-group">
+                                <label for="newdob">Date of Birth</label>
+                                <input class="pure-input-1" id="newdob" type="date">
+                            </div>
+                            <div class="pure-control-group">
+                                <label for="newheight">Height (inches)</label>
+                                <input class="pure-input-1" id="newheight" type="tel" placeholder="Height in Inches">
+                            <div class="pure-control-group">
+                                <label for="newweight">Weight (pounds)</label>
+                                <input class="pure-input-1" id="newweight" type="tel" placeholder="Weight in Pounds">
+                            </div>
+                                <div class="pure-control-group">    
+                                <label for="newscr">Serum Creatinine</label>
+                                <input class="pure-input-1" id="newscr" type="number" placeholder="SCr">
+                            </div>
+                            <div class="pure-control-group">
+                                <label for="newdrugchoice">Drug</label>
+                                <select class="pure-input-1" id="newdrugchoice">
+                                    <option value="vancomycin">Vancomycin</option>
+                                    <option value="gentamicin">Gentamicin</option>
+                                    <option value="tobramycin">Tobramycin</option>
+                                </select>
+                            </div>
+                        </fieldset>    
+                    </form>    
+                    <button class="pure-button-full-width pure-button pure-button-primary" onclick="divchange('goalstab','goalslist');">Next<br>(Goal Levels)</button>
+                </div>
+                <div class="pure-hidden" id="goalstab">
+                    <button class="pure-button pure-button-error" onclick="alert(document.getElementById('newscr').value);">SCr Level</button>
+                </div>
                 <div class="pure-hidden" id="calculatetab">We doing some math here.</div>
                 <div class="pure-hidden" id="newplantab">Plan of action for new dosing.</div>
                 <div class="pure-hidden" id="adjdemotab">Demographics for our repeat offenders.</div>

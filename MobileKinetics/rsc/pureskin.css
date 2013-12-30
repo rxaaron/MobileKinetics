@@ -997,8 +997,12 @@ div{
     color: #777;
 }
 
-.pure-button-fixed-width{
-    width:240px;
+.pure-button-full-width{
+    width:100%;
+}
+
+.pure-button-half-width{
+    width:49%;
 }
 
 .info-hidden{
@@ -1024,3 +1028,4 @@ div{
     padding: 0px;
     float:right;
 }
+

@@ -37,7 +37,9 @@
 function divchange(fadein,menuselect){
     var hidedivs = document.getElementById('pages').getElementsByTagName('div');
     for(var i=0; i<hidedivs.length; i++){
-        hidedivs[i].className='pure-hidden';
+        if(hidedivs[i].className==='pure-visible'){
+            hidedivs[i].className='pure-hidden';
+        }
     }
     setTimeout(function(){window.scroll(0,0);},210);
     setTimeout(function(){document.getElementById(fadein).className="pure-visible";},225);
