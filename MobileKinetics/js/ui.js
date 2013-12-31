@@ -35,6 +35,7 @@
 }(this, this.document));
 
 function divchange(fadein,menuselect){
+    doMath();
     var hidedivs = document.getElementById('pages').getElementsByTagName('div');
     for(var i=0; i<hidedivs.length; i++){
         if(hidedivs[i].className==='pure-visible'){

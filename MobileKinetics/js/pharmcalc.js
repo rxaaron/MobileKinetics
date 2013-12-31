@@ -157,3 +157,7 @@ function PatientK1Level(VolumeOfDistribution,Dose,Trough,Interval){
 function ActualVolumeOfDistribution(Dose,TimeOfInfusion,ActualK,TimeToPeak,Peak,Interval){
     return (((Dose / TimeOfInfusion) * (1 - (Math.exp(-1 * ActualK * TimeOfInfusion))) * (Math.exp(-1 * ActualK * (TimeToPeak - TimeOfInfusion)))) / (Peak * ActualK * (1 - (Math.exp(-1 * ActualK * Interval)))));
 };
+
+function doMath(){
+    
+};
