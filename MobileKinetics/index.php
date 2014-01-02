@@ -44,9 +44,6 @@
                 </div>
                
             </div>
-            <div class="pure-hidden" id="hiddenfields">
-                
-            </div>
             <div class="content" id="pages">
                 <div class="pure-visible" id="starttab">
                     <h2>Welcome!</h2>
@@ -122,7 +119,7 @@
                     <button class="pure-button-full-width pure-button pure-button-primary" onclick="divchange('goalstab','goalslist');">Next<br>(Goal Levels)</button>
                 </div>
                 <div class="pure-hidden" id="goalstab">
-                    <button class="pure-button" onclick="alert(document.getElementById('newscr').value);">SCr Level</button>
+                    <button class="pure-button" onclick="mathLogic('new');">SCr Level</button>
                 </div>
                 <div class="pure-hidden" id="calculatetab">We doing some math here.</div>
                 <div class="pure-hidden" id="newplantab">Plan of action for new dosing.</div>
@@ -132,9 +129,75 @@
                 <div class="pure-hidden" id="adjplantab">This is the plan for dose adjustments.</div>
                 <div class="pure-hidden" id="pknotetab">Hopefully this tab will do something.</div>
                 <div class="pure-hidden" id="mathtab">
-                    
+                    <form class="pure-form pure-form-stacked">
+                        <fieldset>
+                            <legend>Calculated Values</legend>
+                            <div class="pure-g-r">
+                                <div class="pure-u-1-3">
+                                    <label for="DBW">Dosing Body Weight (kg)</label>
+                                    <input class="pure-input-1" id="DBW" type="text" placeholder="To Be Calculated" readonly>
+                                </div>
+                                <div class="pure-u-1-3">
+                                    <label for="BSA">Body Surface Area (m<sup>2</sup>)</label>
+                                    <input class="pure-input-1" id="BSA" type="text" placeholder="To Be Calculated" readonly>
+                                </div>
+                                <div class="pure-u-1-3">
+                                    <label for="BMI">Body Mass Index</label>
+                                    <input class="pure-input-1" id="BMI" type="text" placeholder="To Be Calculated" readonly>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <label for="CrCl">Creatinine Clearance (ml/min)</label>
+                                    <input class="pure-input-1" id="CrCl" type="text" placeholder="To Be Calculated" readonly>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <label for="CrClStd">Standardized Creatinine Clearance (ml/min/1.73m<sup>2</sup>)</label>
+                                    <input class="pure-input-1" id="CrClStd" type="text" placeholder="To Be Calculated" readonly>
+                                </div>
+                                <div class="pure-u-1-3">
+                                    <label for="estVd">Estimated Volume of Distribution</label>
+                                    <input class="pure-input-1" id="estVd" type="text" placeholder="To Be Calculated" readonly>
+                                </div>
+                                <div class="pure-u-1-3">
+                                    <label for="estK">Estimated Elimination Rate Constant [k]</label>
+                                    <input class="pure-input-1" id="estK" type="text" placeholder="To Be Calculated" readonly>
+                                </div>
+                                <div class="pure-u-1-3">
+                                    <label for="estTpoint5">Estimated Half-Life [t&frac12;]</label>
+                                    <input class="pure-input-1" id="estTpoint5" type="text" placeholder="To Be Calculated" readonly>
+                                </div>
+                                <div class="pure-u-1-3">
+                                    <label for="actualVd">Actual Volume of Distribution</label>
+                                    <input class="pure-input-1" id="actualVd" type="text" placeholder="To Be Calculated" readonly>
+                                </div>
+                                <div class="pure-u-1-3">
+                                    <label for="actualK">Actual Elimination Rate Constant [k]</label>
+                                    <input class="pure-input-1" id="actualK" type="text" placeholder="To Be Calculated" readonly>
+                                </div>
+                                <div class="pure-u-1-3">
+                                    <label for="actualTpoint5">Actual Half-Life [t&frac12;]</label>
+                                    <input class="pure-input-1" id="actualTpoint5" type="text" placeholder="To Be Calculated" readonly>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
-                <div class="pure-hidden" id="settingstab">Settings and stuff.</div>
+                <div class="pure-hidden" id="settingstab">
+                    <form class="pure-form pure-form-stacked">
+                        <fieldset>
+                            <legend>Settings</legend>
+                            <div class="pure-g-r">
+                                <div class="pure-u-1-2">
+                                    <label for="vancVConstant">Vancomycin Population Vd Constant</label>
+                                    <input class="pure-input-1" id="vancVConstant" type="text" value="0.7">
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <label for="agVConstant">Aminoglycosides Population Vd Constant</label>
+                                    <input class="pure-input-1" id="agVConstant" type="text" value="0.25">
+                                </div>
+                            </div>
+                        </fieldset>    
+                    </form>
+                </div>
             </div>
         </div>
     </body>

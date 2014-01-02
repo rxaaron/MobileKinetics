@@ -35,7 +35,6 @@
 }(this, this.document));
 
 function divchange(fadein,menuselect){
-    doMath();
     var hidedivs = document.getElementById('pages').getElementsByTagName('div');
     for(var i=0; i<hidedivs.length; i++){
         if(hidedivs[i].className==='pure-visible'){
@@ -59,3 +58,37 @@ function moreinfo(divname,action){
         document.getElementById(divname).className='info-hidden';
     }
 }
+
+function mathLogic(prefix){
+    var drug = document.getElementById(prefix + 'drugchoice').value;
+    var sex = document.getElementById(prefix + 'sex').value;
+    var age = CalculateAge(document.getElementById(prefix + 'dob').value);
+    var heightInches = document.getElementById(prefix + 'height').value;
+    var heightMeters = InchesToMeters(heightInches);
+    var weightPounds = document.getElementById(prefix + 'weight').value;
+    var weightKilograms = PoundsToKilograms(weightPounds);
+    var SerumCreatinine = document.getElementById(prefix + 'scr').value;
+    var DBW = 0;
+    var BSA = 0;
+    var BMI = 0;
+    var CrCl = 0;
+    var CrClStd = 0;
+    
+    if(heightInches!=='' && weightKilograms!=='' && sex!==''){
+        DBW = Math.round(DosingWeight(heightInches,weightKilograms,sex) * 10) / 10;
+        document.getElementById('DBW').value = DBW;
+        BSA = Math.round(BodySurfaceArea(weightKilograms,heightInches) * 10) / 10;
+        document.getElementById('BSA').value = BSA;
+        BMI = Math.round(BodyMassIndex(weightKilograms,heightInches) * 10) / 10;
+        document.getElementById('BMI').value = BMI;
+    }
+    if(DBW!==0 && age!==0 && SerumCreatinine!=='' && sex!==''){
+        CrCl = Math.round(CCG(age,DBW,SerumCreatinine,sex) * 10) / 10;
+        document.getElementById('CrCl').value = CrCl;
+        CrClStd = Math.round(StandardizedCrCl(CrCl,BSA) * 10) / 10;
+        document.getElementById('CrClStd').value = CrClStd;
+    }
+    if(drug!=='' && DBW!==0){
+        
+    }
+};

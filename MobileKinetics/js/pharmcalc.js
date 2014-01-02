@@ -38,11 +38,11 @@ function BodySurfaceArea(ActualBodyWeight,PtHeightInInches){
 
 function BodyMassIndex(ActualBodyWeight,HeightInInches){
     var heightm = InchesToMeters(HeightInInches);
-    return ((ActualBodyWeight/2.2)/(Math.pow(heightm,2)));
+    return ((ActualBodyWeight)/(Math.pow(heightm,2)));
 };
 
-function DosingWeightMale(PtHeightInInches,ActualBodyWeight,IsFemale){
-    if(IsFemale!==1){
+function DosingWeight(PtHeightInInches,ActualBodyWeight,IsFemale){
+    if(IsFemale!=="1"){
         if(PtHeightInInches>60){
             //Standard IBW equation
             var IBW = (50 + (2.3 * (PtHeightInInches - 60)));
@@ -158,6 +158,26 @@ function ActualVolumeOfDistribution(Dose,TimeOfInfusion,ActualK,TimeToPeak,Peak,
     return (((Dose / TimeOfInfusion) * (1 - (Math.exp(-1 * ActualK * TimeOfInfusion))) * (Math.exp(-1 * ActualK * (TimeToPeak - TimeOfInfusion)))) / (Peak * ActualK * (1 - (Math.exp(-1 * ActualK * Interval)))));
 };
 
-function doMath(){
+function CalculateAge(DateOfBirth){
+    if(DateOfBirth===''){
+        return 0;
+    }
+    var todayDate = new Date();
+    var todayYear = todayDate.getFullYear();
+    var todayMonth = todayDate.getMonth();
+    var todayDay = todayDate.getDay();
+    var birthDate = new Date(DateOfBirth);
+    var birthYear = birthDate.getFullYear();
+    var birthMonth = birthDate.getMonth();
+    var birthDay = birthDate.getDay();
+    var age = todayYear - birthYear;
     
+    if(todayMonth < birthMonth){
+        age--;
+    }
+    if(birthMonth===todayMonth && todayDay < birthDay){
+        age--;
+    }
+    
+    return age;
 };
