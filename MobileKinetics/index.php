@@ -53,8 +53,8 @@
                         <li>There are next and previous buttons at the bottom of each page.</li>
                         <li>You can jump to a specific section by opening the menu using <span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-bars fa-stack-1x fa-inverse"></span></i> in the upper-left.</li>
                         <li>Most of the time you should follow the page order to go forward.  Each new page requires the data from the previous page.</li>
-                        <li>Extra information for an item can be found by clicking <i onclick="moreinfo('infoexample','show');" class="fa fa-info-circle"></i> .</li>
-                        <div id="infoexample" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infoexample','hide');"></i>The information will appear below the item, similar to this.  Some of the extra information may contain links to outside websites, especially when guidelines are involved.</div>
+                        <li>Extra information for an item can be found by clicking <i onclick="moreinfo('infoexample','show');" class="fa fa-info-circle"></i> .
+                        <div id="infoexample" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infoexample','hide');"></i>The information will appear below the item, similar to this.  Some of the extra information may contain links to outside websites, especially when guidelines are involved.</div></li>
                         <li><i class="fa fa-envelope"></i> Send questions or comments to <a href="mailto:taylor@myvalleyrx.com">Aaron Taylor</a></li>
                     </ul>
                     
@@ -116,10 +116,46 @@
                             </div>
                         </fieldset>    
                     </form>    
-                    <button class="pure-button-full-width pure-button pure-button-primary" onclick="divchange('goalstab','goalslist');">Next<br>(Goal Levels)</button>
+                    <button class="pure-button-full-width pure-button pure-button-primary" onclick="divchange('goalstab','goalslist');mathLogic('new');">Next<br>(Goal Levels)</button>
                 </div>
                 <div class="pure-hidden" id="goalstab">
-                    <button class="pure-button" onclick="mathLogic('new');">SCr Level</button>
+                    <h2>Dosing Strategy</h2>
+                    <ul>
+                        <li>Vancomycin:
+                            <ul>
+                                <li>Goal Peak ranges from 20-40 mg/L. Use 35 mg/L if not sure. <i onclick="moreinfo('infovancpk','show');" class="fa fa-info-circle"></i>.
+                        <div id="infovancpk" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infovancpk','hide');"></i>Guidelines do not monitor peak levels.  Vancomycin's bacteria killing comes from keeping the trough level continually above MIC, therefore goal peak is mostly for calculation purposes.</div></li>
+                                <li>Goal Trough should always be above 10 mg/L.  Standard range is 10-15 mg/L. <i onclick="moreinfo('infovanctr1','show');" class="fa fa-info-circle"></i>.
+                        <div id="infovanctr1" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infovanctr1','hide');"></i>These goals assume an MIC of less than 1 mg/L.</div></li>
+                                <li>Goal trough range for complicated infections is 15-20 mg/L. <i onclick="moreinfo('infovanctr2','show');" class="fa fa-info-circle"></i>.
+                                    <div id="infovanctr2" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infovanctr2','hide');"></i>Examples of complicated infections:<ul><li>Bacteremia</li><li>Endocarditis</li><li>Osteomyelitis</li><li>Meningitis</li><li>Hospital Acquired Staphylococcus Aureus Pneumonia</li></ul></div></li>
+                            </ul>
+                        </li>
+                        <li>Gentamicin / Tobramycin: <i onclick="moreinfo('infoag','show');" class="fa fa-info-circle"></i>
+                            <div id="infoag" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infoag','hide');"></i>These drugs share the same goals and kinetics.</div>
+                            <ul>
+                                <li>Use Extended Interval dosing if possible.
+                                    <ul>
+                                        <li>Patient is candidate: <span id='extintok'class='yep'>YES</span> <button id='extintgobtn'class='pure-button pure-button-success pure-button-disabled' onclick=''>Go</button></li>
+                                        <li>Use traditional dosing if kidney status is extremely volatile or unknown.</li>
+                                    </ul>
+                                </li>
+                                <li>Traditional Goal Peak varies by indication:  <i onclick="moreinfo('infoagpk','show');" class="fa fa-info-circle"></i>.
+                                    <div id="infoagpk" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infoagpk','hide');"></i>
+                                        <div class='pure-g'>
+                                            <div class='pure-u-1-2'>Urinary Tract Infections:</div><div class='pure-u-1-2'><b>4-6 mg/L</b></div>
+                                            <div class='pure-u-1-2'>Bacteremia:</div><div class='pure-u-1-2'><b>6-8 mg/L</b></div>
+                                            <div class='pure-u-1-2'>Skin and Soft Tissue:</div><div class='pure-u-1-2'><b>6-8 mg/L</b></div>
+                                            <div class='pure-u-1-2'>Serious Infections:</div><div class='pure-u-1-2'><b>6-8 mg/L</b></div>
+                                            <div class='pure-u-1-2'>Pneumonia:</div><div class='pure-u-1-2'><b>8-10 mg/L</b></div>
+                                            <div class='pure-u-1-2'>Meningitis:</div><div class='pure-u-1-2'><b>8-10 mg/L</b></div>
+                                            <div class='pure-u-1-2'>Life Threatening Infections:</div><div class='pure-u-1-2'><b>8-10 mg/L</b></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
                 <div class="pure-hidden" id="calculatetab">We doing some math here.</div>
                 <div class="pure-hidden" id="newplantab">Plan of action for new dosing.</div>

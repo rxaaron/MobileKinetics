@@ -1029,3 +1029,37 @@ div{
     float:right;
 }
 
+.nope{
+    font-weight: bold;
+    color: rgb(202, 60, 60);
+}
+
+.yep{
+    font-weight: bold;
+    color: rgb(28, 184, 65);
+}
+
+.pure-button-success,
+.pure-button-error,
+.pure-button-warning,
+.pure-button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.pure-skin-gmap .pure-button-success{
+    background-color: rgb(28, 184, 65);
+}
+
+.pure-skin-gmap .pure-button-error{
+    background: rgb(202, 60, 60);
+}
+
+.pure-skin-gmap .pure-button-warning{
+    background: rgb(223, 117, 20);
+}
+
+.pure-skin-gmap .pure-button-secondary{
+    background: rgb(66, 184, 221);
+}

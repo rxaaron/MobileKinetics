@@ -104,15 +104,16 @@ function mathLogic(prefix){
         }else if(drug==='gentamicin'){
             Vd = Math.round(EstVolumeOfDistribution(document.getElementById('agVConstant').value,weightKilograms) * 100) / 100;
             document.getElementById('estVd').value = Vd;
-            k = Math.round(GentamicinEstK(CrCl) * 1000) / 1000;
+            k = Math.round(AminoglycosideEstK(CrCl) * 1000) / 1000;
             document.getElementById('estK').value = k;
         }else if(drug==='tobramycin'){
             Vd = Math.round(EstVolumeOfDistribution(document.getElementById('agVConstant').value,weightKilograms) * 100) / 100;
             document.getElementById('estVd').value = Vd;
-            k = Math.round(TobramycinEstK(CrClStd) * 1000) / 1000;
+            k = Math.round(AminoglycosideEstK(CrCl) * 1000) / 1000;
             document.getElementById('estK').value = k;
         }
         tpoint5 = Math.round(HalfLife(k) * 10) / 10;
         document.getElementById('estTpoint5').value = tpoint5;
     }
 };
+

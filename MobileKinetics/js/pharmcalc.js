@@ -16,12 +16,8 @@ function HalfLife(k){
     return 0.693 / k;
 };
 
-function GentamicinEstK(CrCl){
+function AminoglycosideEstK(CrCl){
     return ((0.00293 * CrCl) + 0.014);
-};
-
-function TobramycinEstK(CrClStd){
-    return ((0.00293 * CrClStd) + 0.014);
 };
 
 function VancomycinEstK(CrCl){
