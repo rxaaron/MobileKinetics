@@ -79,6 +79,10 @@ function DosingWeight(PtHeightInInches,ActualBodyWeight,IsFemale){
     }
 };
 
+function IDMSCorrection(SCr){
+    return ((SCr * 1.065) + 0.067);
+};
+
 function CCG(Age,DosingWeight,SCr,IsFemale){
     if(IsFemale!==1){
         return (((140 - Age) * DosingWeight)/(72 * SCr));

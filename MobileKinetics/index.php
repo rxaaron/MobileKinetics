@@ -187,11 +187,11 @@
                             <legend>Settings</legend>
                             <div class="pure-g-r">
                                 <div class="pure-u-1-2">
-                                    <label for="vancVConstant">Vancomycin Population Vd Constant</label>
+                                    <label for="vancVConstant">Vancomycin Population Vd Constant (L/kg)</label>
                                     <input class="pure-input-1" id="vancVConstant" type="text" value="0.7">
                                 </div>
                                 <div class="pure-u-1-2">
-                                    <label for="agVConstant">Aminoglycosides Population Vd Constant</label>
+                                    <label for="agVConstant">Aminoglycosides Population Vd Constant (L/kg)</label>
                                     <input class="pure-input-1" id="agVConstant" type="text" value="0.25">
                                 </div>
                             </div>

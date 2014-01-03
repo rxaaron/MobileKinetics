@@ -64,15 +64,22 @@ function mathLogic(prefix){
     var sex = document.getElementById(prefix + 'sex').value;
     var age = CalculateAge(document.getElementById(prefix + 'dob').value);
     var heightInches = document.getElementById(prefix + 'height').value;
-    var heightMeters = InchesToMeters(heightInches);
     var weightPounds = document.getElementById(prefix + 'weight').value;
     var weightKilograms = PoundsToKilograms(weightPounds);
-    var SerumCreatinine = document.getElementById(prefix + 'scr').value;
+    var LabSerumCreatinine = document.getElementById(prefix + 'scr').value;
+    var SerumCreatinine = 0;
     var DBW = 0;
     var BSA = 0;
     var BMI = 0;
     var CrCl = 0;
     var CrClStd = 0;
+    var Vd = 0;
+    var k = 0;
+    var tpoint5 = 0;
+    
+    if(LabSerumCreatinine!==''){
+        SerumCreatinine = Math.round(IDMSCorrection(LabSerumCreatinine) * 10) / 10;
+    }
     
     if(heightInches!=='' && weightKilograms!=='' && sex!==''){
         DBW = Math.round(DosingWeight(heightInches,weightKilograms,sex) * 10) / 10;
@@ -89,6 +96,23 @@ function mathLogic(prefix){
         document.getElementById('CrClStd').value = CrClStd;
     }
     if(drug!=='' && DBW!==0){
-        
+        if(drug==='vancomycin'){
+            Vd = Math.round(EstVolumeOfDistribution(document.getElementById('vancVConstant').value,weightKilograms) * 100) / 100;
+            document.getElementById('estVd').value = Vd;
+            k = Math.round(VancomycinEstK(CrCl) * 1000) / 1000;
+            document.getElementById('estK').value = k;
+        }else if(drug==='gentamicin'){
+            Vd = Math.round(EstVolumeOfDistribution(document.getElementById('agVConstant').value,weightKilograms) * 100) / 100;
+            document.getElementById('estVd').value = Vd;
+            k = Math.round(GentamicinEstK(CrCl) * 1000) / 1000;
+            document.getElementById('estK').value = k;
+        }else if(drug==='tobramycin'){
+            Vd = Math.round(EstVolumeOfDistribution(document.getElementById('agVConstant').value,weightKilograms) * 100) / 100;
+            document.getElementById('estVd').value = Vd;
+            k = Math.round(TobramycinEstK(CrClStd) * 1000) / 1000;
+            document.getElementById('estK').value = k;
+        }
+        tpoint5 = Math.round(HalfLife(k) * 10) / 10;
+        document.getElementById('estTpoint5').value = tpoint5;
     }
 };
