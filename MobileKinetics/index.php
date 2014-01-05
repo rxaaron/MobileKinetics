@@ -20,7 +20,7 @@
             </a>
             <div id="menu">
                 <div class="pure-menu pure-menu-open">
-                    <a class="pure-menu-heading" href="http://gmapserver.grcs.local/kinetics/">Start Over</a>
+                    <a class="pure-menu-heading" href="/kinetics/">Start Over</a>
                     <a class="pure-menu-subheading">New Dose</a>
                     <ul>
                         <li id="newdemolist"><a href="#newdemographics" onclick="divchange('newdemotab','newdemolist');"><i class="fa fa-users"></i> Demographics</a></li>
