@@ -106,11 +106,25 @@ function mathLogic(prefix){
             document.getElementById('estVd').value = Vd;
             k = Math.round(AminoglycosideEstK(CrCl) * 1000) / 1000;
             document.getElementById('estK').value = k;
+            if(AgExtIntInitialInterval(CrCl)>0){
+                document.getElementById('extintok').className='yep';
+                document.getElementById('extintgobtn').className='pure-button pure-button-success';
+            }else{
+                document.getElementById('extintok').className='nope';
+                document.getElementById('extintgobtn').className='pure-button pure-button-success pure-button-disabled';
+            }
         }else if(drug==='tobramycin'){
             Vd = Math.round(EstVolumeOfDistribution(document.getElementById('agVConstant').value,weightKilograms) * 100) / 100;
             document.getElementById('estVd').value = Vd;
             k = Math.round(AminoglycosideEstK(CrCl) * 1000) / 1000;
             document.getElementById('estK').value = k;
+            if(AgExtIntInitialInterval(CrCl)>0){
+                document.getElementById('extintok').className='yep';
+                document.getElementById('extintgobtn').className='pure-button pure-button-success';
+            }else{
+                document.getElementById('extintok').className='nope';
+                document.getElementById('extintgobtn').className='pure-button pure-button-success pure-button-disabled';
+            }
         }
         tpoint5 = Math.round(HalfLife(k) * 10) / 10;
         document.getElementById('estTpoint5').value = tpoint5;

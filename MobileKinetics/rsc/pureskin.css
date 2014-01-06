@@ -1029,14 +1029,16 @@ div{
     float:right;
 }
 
-.nope{
+.nope:after{
     font-weight: bold;
     color: rgb(202, 60, 60);
+    content: "NO";
 }
 
-.yep{
+.yep:after{
     font-weight: bold;
     color: rgb(28, 184, 65);
+    content: "YES";
 }
 
 .pure-button-success,
@@ -1062,4 +1064,8 @@ div{
 
 .pure-skin-gmap .pure-button-secondary{
     background: rgb(66, 184, 221);
+}
+
+.info-disabled {
+    opacity:0.3;
 }

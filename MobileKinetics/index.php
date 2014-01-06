@@ -123,11 +123,11 @@
                     <ul>
                         <li>Vancomycin:
                             <ul>
-                                <li>Goal Peak ranges from 20-40 mg/L. Use 35 mg/L if not sure. <i onclick="moreinfo('infovancpk','show');" class="fa fa-info-circle"></i>.
+                                <li>Goal Peak ranges from 20-40 mg/L. Use 35 mg/L if not sure. <i onclick="moreinfo('infovancpk','show');" class="fa fa-info-circle"></i>
                         <div id="infovancpk" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infovancpk','hide');"></i>Guidelines do not monitor peak levels.  Vancomycin's bacteria killing comes from keeping the trough level continually above MIC, therefore goal peak is mostly for calculation purposes.</div></li>
-                                <li>Goal Trough should always be above 10 mg/L.  Standard range is 10-15 mg/L. <i onclick="moreinfo('infovanctr1','show');" class="fa fa-info-circle"></i>.
+                                <li>Goal Trough should always be above 10 mg/L.  Standard range is 10-15 mg/L. <i onclick="moreinfo('infovanctr1','show');" class="fa fa-info-circle"></i>
                         <div id="infovanctr1" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infovanctr1','hide');"></i>These goals assume an MIC of less than 1 mg/L.</div></li>
-                                <li>Goal trough range for complicated infections is 15-20 mg/L. <i onclick="moreinfo('infovanctr2','show');" class="fa fa-info-circle"></i>.
+                                <li>Goal trough range for complicated infections is 15-20 mg/L. <i onclick="moreinfo('infovanctr2','show');" class="fa fa-info-circle"></i>
                                     <div id="infovanctr2" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infovanctr2','hide');"></i>Examples of complicated infections:<ul><li>Bacteremia</li><li>Endocarditis</li><li>Osteomyelitis</li><li>Meningitis</li><li>Hospital Acquired Staphylococcus Aureus Pneumonia</li></ul></div></li>
                             </ul>
                         </li>
@@ -136,11 +136,11 @@
                             <ul>
                                 <li>Use Extended Interval dosing if possible.
                                     <ul>
-                                        <li>Patient is candidate: <span id='extintok'class='yep'>YES</span> <button id='extintgobtn'class='pure-button pure-button-success pure-button-disabled' onclick=''>Go</button></li>
+                                        <li>Patient is candidate: <span id='extintok'class='nope'></span> <button id='extintgobtn'class='pure-button pure-button-success pure-button-disabled' onclick=''>Go</button></li>
                                         <li>Use traditional dosing if kidney status is extremely volatile or unknown.</li>
                                     </ul>
                                 </li>
-                                <li>Traditional Goal Peak varies by indication:  <i onclick="moreinfo('infoagpk','show');" class="fa fa-info-circle"></i>.
+                                <li>Traditional Goal Peak varies by indication:  <i onclick="moreinfo('infoagpk','show');" class="fa fa-info-circle"></i>
                                     <div id="infoagpk" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infoagpk','hide');"></i>
                                         <div class='pure-g'>
                                             <div class='pure-u-1-2'>Urinary Tract Infections:</div><div class='pure-u-1-2'><b>4-6 mg/L</b></div>
@@ -151,6 +151,11 @@
                                             <div class='pure-u-1-2'>Meningitis:</div><div class='pure-u-1-2'><b>8-10 mg/L</b></div>
                                             <div class='pure-u-1-2'>Life Threatening Infections:</div><div class='pure-u-1-2'><b>8-10 mg/L</b></div>
                                         </div>
+                                    </div>
+                                </li>
+                                <li>Traditional Trough range is 0.5-2 mg/L. <i onclick="moreinfo('infoagtr','show');" class="fa fa-info-circle"></i>
+                                    <div id="infoagtr" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infoagtr','hide');"></i>
+                                        Use 1 mg/L as your goal if unsure.
                                     </div>
                                 </li>
                             </ul>
