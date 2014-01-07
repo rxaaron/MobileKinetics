@@ -101,29 +101,34 @@ function mathLogic(prefix){
             document.getElementById('estVd').value = Vd;
             k = Math.round(VancomycinEstK(CrCl) * 1000) / 1000;
             document.getElementById('estK').value = k;
+            document.getElementById('agextintp').className='form-disabled';
+            document.getElementById('extintok').className='nope';
+            document.getElementById('extintgobtn').className='pure-hidden';
         }else if(drug==='gentamicin'){
             Vd = Math.round(EstVolumeOfDistribution(document.getElementById('agVConstant').value,weightKilograms) * 100) / 100;
             document.getElementById('estVd').value = Vd;
             k = Math.round(AminoglycosideEstK(CrCl) * 1000) / 1000;
             document.getElementById('estK').value = k;
+            document.getElementById('agextintp').className='';
             if(AgExtIntInitialInterval(CrCl)>0){
                 document.getElementById('extintok').className='yep';
                 document.getElementById('extintgobtn').className='pure-button pure-button-success';
             }else{
                 document.getElementById('extintok').className='nope';
-                document.getElementById('extintgobtn').className='pure-button pure-button-success pure-button-disabled';
+                document.getElementById('extintgobtn').className='pure-hidden';
             }
         }else if(drug==='tobramycin'){
             Vd = Math.round(EstVolumeOfDistribution(document.getElementById('agVConstant').value,weightKilograms) * 100) / 100;
             document.getElementById('estVd').value = Vd;
             k = Math.round(AminoglycosideEstK(CrCl) * 1000) / 1000;
             document.getElementById('estK').value = k;
+            document.getElementById('agextintp').className='';
             if(AgExtIntInitialInterval(CrCl)>0){
                 document.getElementById('extintok').className='yep';
                 document.getElementById('extintgobtn').className='pure-button pure-button-success';
             }else{
                 document.getElementById('extintok').className='nope';
-                document.getElementById('extintgobtn').className='pure-button pure-button-success pure-button-disabled';
+                document.getElementById('extintgobtn').className='pure-hidden';
             }
         }
         tpoint5 = Math.round(HalfLife(k) * 10) / 10;
@@ -131,3 +136,31 @@ function mathLogic(prefix){
     }
 };
 
+function GoExtInt(){
+    
+};
+
+function CalculateNewDose(){
+    var drug = document.getElementById('newdrugchoice').value;
+    var PeakTime;
+    var DoseRound;
+    var InfusionTime;
+    if(drug==='vancomycin'){
+        PeakTime = document.getElementById('vancPeakDraw').value;
+        DoseRound = document.getElementById('vancRound').value;
+        InfusionTime = document.getElementById('vancInfusionTime').value;
+    }else if(drug==='gentamicin'){
+        PeakTime = document.getElementById('agPeakDraw').value;
+        DoseRound = document.getElementById('agRound').value;
+        InfusionTime = document.getElementById('agInfusionTime').value;
+    }else if(drug==='tobramycin'){
+        PeakTime = document.getElementById('agPeakDraw').value;
+        DoseRound = document.getElementById('agRound').value;
+        InfusionTime = document.getElementById('agInfusionTime').value;
+    }
+    var Frequency = Math.round(CalculateInterval(document.getElementById('newgoaltr').value,document.getElementById('newgoalpk').value,document.getElementById('estK').value,PeakTime) * 10) / 10;
+    document.getElementById('newcalcfreq').value = Frequency;
+    
+    var Dose = Math.round(CalculateDose(document.getElementById('newgoalpk').value, document.getElementById('estVd').value, document.getElementById('estK').value, Frequency, InfusionTime, PeakTime));
+    document.getElementById('newcalcdose').value = Dose;
+};

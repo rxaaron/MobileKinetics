@@ -135,7 +135,7 @@ function CalculateInterval(DesiredTrough,DesiredPeak,K,TimeToPeak){
 };
 
 function CalculateDose(DesiredPeak, VolumeOfDistribution,K,DoseInterval,TimeOfInfusion,TimeToPeak){
-    return ((DesiredPeak * VolumeOfDistribution * K *(1 - (Math.exp(-1 * K * DoseInterval))) * TimeOfInfusion) / ((1 - (Math.exp(-1 * K * TimeOfInfusion))) * Math.exp(-1 * K * TimeToPeak)));
+    return ((DesiredPeak * VolumeOfDistribution * K *(1 - (Math.exp(-1 * K * DoseInterval))) * TimeOfInfusion) / (1 - (Math.exp(-1 * K * TimeOfInfusion))));
 };
 
 function PredictPeak(Dose,TimeOfInfusion,K,TimeToPeak,VolumeOfDistribution,DoseInterval){

@@ -4,8 +4,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Encore Dosing Calculator</title>
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css" />
+        <link href="rsc/font-awesome.css" rel="stylesheet" />
+        <link rel="stylesheet" href="rsc/pure-min.css" />
         <link rel="stylesheet" href="rsc/side-menu.css" type="text/css" />
         <link rel="stylesheet" href="rsc/pureskin.css" type="text/css" />
         <link rel="shortcut icon" href="rsc/favicon.ico" />
@@ -49,17 +49,25 @@
                     <h2>Welcome!</h2>
                     <h4>Quick instructions for use:</h4>
                     <ul>
+                        <li>Do not use the Forward or Back button on your browser.  This is a self-contained page and you will lose your data.</li>
                         <li>Items with <i class="fa fa-signal"></i> require Internet service.</li>
-                        <li>There are next and previous buttons at the bottom of each page.</li>
+                        <li>Use the buttons in each section to move on to the next section.</li>
                         <li>You can jump to a specific section by opening the menu using <span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-bars fa-stack-1x fa-inverse"></span></i> in the upper-left.</li>
                         <li>Most of the time you should follow the page order to go forward.  Each new page requires the data from the previous page.</li>
                         <li>Extra information for an item can be found by clicking <i onclick="moreinfo('infoexample','show');" class="fa fa-info-circle"></i> .
-                        <div id="infoexample" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infoexample','hide');"></i>The information will appear below the item, similar to this.  Some of the extra information may contain links to outside websites, especially when guidelines are involved.</div></li>
+                        <div id="infoexample" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infoexample','hide');"></i>The information will appear below the item, similar to this.  Some of the extra information may contain links to outside websites.</div></li>
                         <li><i class="fa fa-envelope"></i> Send questions or comments to <a href="mailto:taylor@myvalleyrx.com">Aaron Taylor</a></li>
                     </ul>
-                    
-                        <button class="pure-button pure-button-primary pure-button-half-width" onclick="divchange('newdemotab','newdemolist');">New<br>Dosing</button>     
-                        <button class=" pure-button-half-width pure-button pure-button-primary" onclick="divchange('adjdemotab','adjdemolist');">Dose<br>Adjustment</button>
+                    <form class="pure-form pure-form-stacked">
+                        <div class="pure-g-r">
+                            <div class="pure-u-1-2">
+                                <button class="pure-button pure-button-primary pure-input-1" onclick="divchange('newdemotab','newdemolist');">New<br>Dosing</button>
+                            </div>
+                            <div class="pure-u-1-2">
+                                <button class="pure-input-1 pure-button pure-button-success" onclick="divchange('adjdemotab','adjdemolist');">Dose<br>Adjustment</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="pure-hidden" id="newdemotab">
                     <form class="pure-form pure-form-stacked">
@@ -119,7 +127,29 @@
                     <button class="pure-button-full-width pure-button pure-button-primary" onclick="divchange('goalstab','goalslist');mathLogic('new');">Next<br>(Goal Levels)</button>
                 </div>
                 <div class="pure-hidden" id="goalstab">
-                    <h2>Dosing Strategy</h2>
+                    <form class="pure-form pure-form-stacked">
+                        <fieldset>
+                            <legend>Concentration Goals</legend>
+                            <div class="pure-g-r">
+                                <div class="pure-u-1-2">
+                                    <label for="newgoalpk">Goal Peak</label>
+                                    <input class="pure-input-1" id="newgoalpk" type="number" placeholder="Peak">
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <label for="newgoaltr">Goal Trough</label>
+                                    <input class="pure-input-1" id="newgoaltr" type="number" placeholder="Trough">
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <button class="pure-input-1 pure-button pure-button-error" onclick="divchange('newdemotab','newdemolist');">Back<br>(Demographics)</button>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <button class="pure-input-1 pure-button pure-button-primary" onclick="CalculateNewDose(); divchange('calculatetab','calculatelist')">Next<br>(Calculate Dose)</button>
+                                </div>
+                            </div>
+                            <p id="agextintp" class="form-disabled">Patient is candidate for extended interval dosing: <span id='extintok'class='nope'></span> <button id='extintgobtn'class='pure-hidden' onclick='GoExtInt();'>Calculate</button></p>
+                        </fieldset>
+                    </form>
+                    <h2>Dosing Hints</h2>
                     <ul>
                         <li>Vancomycin:
                             <ul>
@@ -134,12 +164,8 @@
                         <li>Gentamicin / Tobramycin: <i onclick="moreinfo('infoag','show');" class="fa fa-info-circle"></i>
                             <div id="infoag" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infoag','hide');"></i>These drugs share the same goals and kinetics.</div>
                             <ul>
-                                <li>Use Extended Interval dosing if possible.
-                                    <ul>
-                                        <li>Patient is candidate: <span id='extintok'class='nope'></span> <button id='extintgobtn'class='pure-button pure-button-success pure-button-disabled' onclick=''>Go</button></li>
-                                        <li>Use traditional dosing if kidney status is extremely volatile or unknown.</li>
-                                    </ul>
-                                </li>
+                                <li>Use Extended Interval dosing if possible.</li>
+                                <li>Use traditional dosing if kidney status is extremely volatile or unknown.</li>
                                 <li>Traditional Goal Peak varies by indication:  <i onclick="moreinfo('infoagpk','show');" class="fa fa-info-circle"></i>
                                     <div id="infoagpk" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infoagpk','hide');"></i>
                                         <div class='pure-g'>
@@ -162,7 +188,23 @@
                         </li>
                     </ul>
                 </div>
-                <div class="pure-hidden" id="calculatetab">We doing some math here.</div>
+                <div class="pure-hidden" id="calculatetab">
+                    <form class="pure-form pure-form-stacked">
+                        <fieldset>
+                            <legend>Calculated Dosing</legend>
+                            <div class="pure-g-r">
+                                <div class="pure-u-1-2">
+                                    <label for="newcalcdose">Dose (mg)</label>
+                                    <input class="pure-input-1" type="text" id="newcalcdose" placeholder="Dose" readonly>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <label for="newcalcfreq">Frequency (hours)</label>
+                                    <input class="pure-input-1" type="text" id="newcalcfreq" placeholder="Frequency" readonly>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
                 <div class="pure-hidden" id="newplantab">Plan of action for new dosing.</div>
                 <div class="pure-hidden" id="adjdemotab">Demographics for our repeat offenders.</div>
                 <div class="pure-hidden" id="resultstab">Lab results are entered here.</div>
@@ -232,8 +274,32 @@
                                     <input class="pure-input-1" id="vancVConstant" type="text" value="0.7">
                                 </div>
                                 <div class="pure-u-1-2">
+                                    <label for="vancRound">Round Vancomycin Dosing To (mg)</label>
+                                    <input class="pure-input-1" id="vancRound" type="text" value="250">
+                                </div> 
+                                <div class="pure-u-1-2">
+                                    <label for="vancPeakDraw">Vancomycin Peak Draw Time (hours)</label>
+                                    <input class="pure-input-1" id="vancPeakDraw" type="text" value="3">
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <label for="vancInfusionTime">Vancomycin Infusion Time (hours)</label>
+                                    <input class="pure-input-1" id="vancInfusionTime" type="text" value="2">
+                                </div>
+                                <div class="pure-u-1-2">
                                     <label for="agVConstant">Aminoglycosides Population Vd Constant (L/kg)</label>
                                     <input class="pure-input-1" id="agVConstant" type="text" value="0.25">
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <label for="agRound">Round Aminoglycoside Dosing To (mg)</label>
+                                    <input class="pure-input-1" id="agRound" type="text" value="20">
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <label for="agPeakDraw">Aminoglycosides Peak Draw Time (hours)</label>
+                                    <input class="pure-input-1" id="agPeakDraw" type="text" value="1">
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <label for="agInfusionTime">Aminoglycoside Infusion Time (hours)</label>
+                                    <input class="pure-input-1" id="agInfusionTime" type="text" value="0.5">
                                 </div>
                             </div>
                         </fieldset>    

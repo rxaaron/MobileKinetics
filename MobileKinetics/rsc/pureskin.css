@@ -989,10 +989,6 @@ div{
 }
 /* end from menu-responsive.css ******************/
     
-.content{
-    margin-left: 1.2em;
-}
-
 .content a{
     color: #777;
 }
@@ -1066,6 +1062,6 @@ div{
     background: rgb(66, 184, 221);
 }
 
-.info-disabled {
-    opacity:0.3;
+.form-disabled {
+    opacity:0.2;
 }
