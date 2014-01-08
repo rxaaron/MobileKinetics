@@ -4,10 +4,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Encore Dosing Calculator</title>
-        <link href="rsc/font-awesome.css" rel="stylesheet" />
         <link rel="stylesheet" href="rsc/pure-min.css" />
         <link rel="stylesheet" href="rsc/side-menu.css" type="text/css" />
         <link rel="stylesheet" href="rsc/pureskin.css" type="text/css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         <link rel="shortcut icon" href="rsc/favicon.ico" />
     </head>
     <body class="pure-skin-gmap">
