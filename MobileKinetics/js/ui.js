@@ -137,7 +137,10 @@ function mathLogic(prefix){
 };
 
 function GoExtInt(){
-    
+    var NewExtIntDose = RoundToSignificance(AgExtIntDose(document.getElementById('DBW').value),20);
+    document.getElementById('newcalcdose').value = NewExtIntDose;
+    var NewExtIntInt = AgExtIntInitialInterval(document.getElementById('CrCl').value);
+    document.getElementById('newcalcfreq').value = NewExtIntInt;
 };
 
 function CalculateNewDose(){
@@ -145,6 +148,73 @@ function CalculateNewDose(){
     var PeakTime;
     var DoseRound;
     var InfusionTime;
+    var Vd = document.getElementById('estVd').value;
+    var k = document.getElementById('estK').value;
+    
+    if(drug==='vancomycin'){
+        document.getElementById('newvanc1g').className='';
+        document.getElementById('newcalcdose').step = '250';
+        PeakTime = document.getElementById('vancPeakDraw').value;
+        DoseRound = document.getElementById('vancRound').value;
+        InfusionTime = document.getElementById('vancInfusionTime').value;
+        var pk12 = PredictPeak(1000,2,k,3,Vd,12);
+        document.getElementById('vnpk12').value = Math.round(pk12 * 10) / 10;
+        document.getElementById('vntr12').value = Math.round(PredictTrough(pk12,k,12,3) * 10) / 10;
+        var pk24 = PredictPeak(1000,2,k,3,Vd,24);
+        document.getElementById('vnpk24').value = Math.round(pk24 * 10) / 10;
+        document.getElementById('vntr24').value = Math.round(PredictTrough(pk24,k,24,3) * 10) / 10;
+        var pk36 = PredictPeak(1000,2,k,3,Vd,36);
+        document.getElementById('vnpk36').value = Math.round(pk36 * 10) / 10;
+        document.getElementById('vntr36').value = Math.round(PredictTrough(pk36,k,36,3) * 10) / 10;
+        var pk48 = PredictPeak(1000,2,k,3,Vd,48);
+        document.getElementById('vnpk48').value = Math.round(pk48 * 10) / 10;
+        document.getElementById('vntr48').value = Math.round(PredictTrough(pk48,k,48,3) * 10) / 10;
+    }else if(drug==='gentamicin'){
+        document.getElementById('newvanc1g').className='info-hidden';
+        document.getElementById('newcalcdose').step = '20';
+        PeakTime = document.getElementById('agPeakDraw').value;
+        DoseRound = document.getElementById('agRound').value;
+        InfusionTime = document.getElementById('agInfusionTime').value;
+    }else if(drug==='tobramycin'){
+        document.getElementById('newvanc1g').className='info-hidden';
+        document.getElementById('newcalcdose').step = '20';
+        PeakTime = document.getElementById('agPeakDraw').value;
+        DoseRound = document.getElementById('agRound').value;
+        InfusionTime = document.getElementById('agInfusionTime').value;
+    }
+    var FlatFrequency = CalculateInterval(document.getElementById('newgoaltr').value,document.getElementById('newgoalpk').value,k,PeakTime);
+    var Frequency;
+    if(FlatFrequency<10){
+        Frequency = RoundToSignificance(FlatFrequency,2);
+    }else{
+        Frequency = RoundToSignificance(FlatFrequency,12);
+    }
+    if(isNaN(Frequency)===true){
+        document.getElementById('newcalcfreq').value = 'Enter More Data';
+    }else{
+        document.getElementById('newcalcfreq').value = Frequency;
+    }
+    var Dose = RoundToSignificance(CalculateDose(document.getElementById('newgoalpk').value, Vd, k, Frequency, InfusionTime, PeakTime),DoseRound);
+    if(isNaN(Dose)===true){
+        document.getElementById('newcalcdose').value = 'Enter More Data';
+    }else{
+        document.getElementById('newcalcdose').value = Dose;
+    }
+    if(isNaN(Dose)===false && isNaN(Frequency)===false){
+        var newpk = PredictPeak(Dose,InfusionTime,k,PeakTime,Vd,Frequency);
+        document.getElementById('newcalcpk').value = Math.round(newpk * 10) / 10;
+        document.getElementById('newcalctr').value = Math.round(PredictTrough(newpk,k,Frequency,PeakTime) * 10) / 10;
+    }
+};
+
+function PredictLevels(){
+        var drug = document.getElementById('newdrugchoice').value;
+    var PeakTime;
+    var DoseRound;
+    var InfusionTime;
+    var Vd = document.getElementById('estVd').value;
+    var k = document.getElementById('estK').value;
+    
     if(drug==='vancomycin'){
         PeakTime = document.getElementById('vancPeakDraw').value;
         DoseRound = document.getElementById('vancRound').value;
@@ -158,9 +228,11 @@ function CalculateNewDose(){
         DoseRound = document.getElementById('agRound').value;
         InfusionTime = document.getElementById('agInfusionTime').value;
     }
-    var Frequency = Math.round(CalculateInterval(document.getElementById('newgoaltr').value,document.getElementById('newgoalpk').value,document.getElementById('estK').value,PeakTime) * 10) / 10;
-    document.getElementById('newcalcfreq').value = Frequency;
-    
-    var Dose = Math.round(CalculateDose(document.getElementById('newgoalpk').value, document.getElementById('estVd').value, document.getElementById('estK').value, Frequency, InfusionTime, PeakTime));
-    document.getElementById('newcalcdose').value = Dose;
+    var Dose = document.getElementById('newcalcdose').value;
+    var Frequency = document.getElementById('newcalcfreq').value;
+    if(isNaN(Dose)===false && isNaN(Frequency)===false){
+        var newpk = PredictPeak(Dose,InfusionTime,k,PeakTime,Vd,Frequency);
+        document.getElementById('newcalcpk').value = Math.round(newpk * 10) / 10;
+        document.getElementById('newcalctr').value = Math.round(PredictTrough(newpk,k,Frequency,PeakTime) * 10) / 10;
+    }
 };

@@ -1059,9 +1059,21 @@ div{
 }
 
 .pure-skin-gmap .pure-button-secondary{
-    background: rgb(66, 184, 221);
+    background: #e6e6e6;
+    color: #000;
+    border:1px solid #c9c9c9;
+}
+
+.pure-skin-gmap .pure-button-tertiary{
+    background: #d8d8d8;
+    color: #000;
+    border:1px solid #c9c9c9;
 }
 
 .form-disabled {
     opacity:0.2;
+}
+
+.math-result {
+    color: red;
 }

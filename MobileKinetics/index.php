@@ -107,19 +107,19 @@
                                 </div>
                                 <div class="pure-u-1-2">
                                     <label for="newdob">Date of Birth</label>
-                                    <input class="pure-input-1" id="newdob" type="date">
+                                    <input class="pure-input-1" id="newdob" type="date" value="1950-01-01">
                                 </div>
                                 <div class="pure-u-1-3">
                                     <label for="newheight">Height (inches)</label>
-                                    <input class="pure-input-1" id="newheight" type="tel" placeholder="Height in Inches">
+                                    <input class="pure-input-1" id="newheight" type="tel" placeholder="Height in Inches" min="0" step="1">
                                 </div>
                                 <div class="pure-u-1-3">
                                     <label for="newweight">Weight (pounds)</label>
-                                    <input class="pure-input-1" id="newweight" type="tel" placeholder="Weight in Pounds">
+                                    <input class="pure-input-1" id="newweight" type="tel" placeholder="Weight in Pounds" min="0" step="1">
                                 </div>
                                     <div class="pure-u-1-3">    
                                     <label for="newscr">Serum Creatinine</label>
-                                    <input class="pure-input-1" id="newscr" type="number" placeholder="SCr">
+                                    <input class="pure-input-1" id="newscr" type="number" placeholder="SCr" min="0" step="0.1">
                                 </div>
                             </div>
                         </fieldset>    
@@ -133,11 +133,11 @@
                             <div class="pure-g-r">
                                 <div class="pure-u-1-2">
                                     <label for="newgoalpk">Goal Peak</label>
-                                    <input class="pure-input-1" id="newgoalpk" type="number" placeholder="Peak">
+                                    <input class="pure-input-1" id="newgoalpk" type="number" placeholder="Peak" min="0" step="1">
                                 </div>
                                 <div class="pure-u-1-2">
                                     <label for="newgoaltr">Goal Trough</label>
-                                    <input class="pure-input-1" id="newgoaltr" type="number" placeholder="Trough">
+                                    <input class="pure-input-1" id="newgoaltr" type="number" placeholder="Trough" min="0" step="0.5">
                                 </div>
                                 <div class="pure-u-1-2">
                                     <button class="pure-input-1 pure-button pure-button-error" onclick="divchange('newdemotab','newdemolist');">Back<br>(Demographics)</button>
@@ -146,18 +146,18 @@
                                     <button class="pure-input-1 pure-button pure-button-primary" onclick="CalculateNewDose(); divchange('calculatetab','calculatelist')">Next<br>(Calculate Dose)</button>
                                 </div>
                             </div>
-                            <p id="agextintp" class="form-disabled">Patient is candidate for extended interval dosing: <span id='extintok'class='nope'></span> <button id='extintgobtn'class='pure-hidden' onclick='GoExtInt();'>Calculate</button></p>
+                            <p id="agextintp" class="form-disabled">Patient is candidate for extended interval dosing: <span id='extintok'class='nope'></span> <button id='extintgobtn'class='pure-hidden' onclick="GoExtInt();divchange('newplantab','newplanlist');">Calculate</button></p>
                         </fieldset>
                     </form>
                     <h2>Dosing Hints</h2>
                     <ul>
                         <li>Vancomycin:
                             <ul>
-                                <li>Goal Peak ranges from 20-40 mg/L. Use 35 mg/L if not sure. <i onclick="moreinfo('infovancpk','show');" class="fa fa-info-circle"></i>
+                                <li>Goal Peak ranges from 20&ndash;40 mg/L. Use 35 mg/L if not sure. <i onclick="moreinfo('infovancpk','show');" class="fa fa-info-circle"></i>
                         <div id="infovancpk" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infovancpk','hide');"></i>Guidelines do not monitor peak levels.  Vancomycin's bacteria killing comes from keeping the trough level continually above MIC, therefore goal peak is mostly for calculation purposes.</div></li>
-                                <li>Goal Trough should always be above 10 mg/L.  Standard range is 10-15 mg/L. <i onclick="moreinfo('infovanctr1','show');" class="fa fa-info-circle"></i>
+                                <li>Goal Trough should always be above 10 mg/L.  Standard range is 10&ndash;15 mg/L. <i onclick="moreinfo('infovanctr1','show');" class="fa fa-info-circle"></i>
                         <div id="infovanctr1" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infovanctr1','hide');"></i>These goals assume an MIC of less than 1 mg/L.</div></li>
-                                <li>Goal trough range for complicated infections is 15-20 mg/L. <i onclick="moreinfo('infovanctr2','show');" class="fa fa-info-circle"></i>
+                                <li>Goal trough range for complicated infections is 15&ndash;20 mg/L. <i onclick="moreinfo('infovanctr2','show');" class="fa fa-info-circle"></i>
                                     <div id="infovanctr2" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infovanctr2','hide');"></i>Examples of complicated infections:<ul><li>Bacteremia</li><li>Endocarditis</li><li>Osteomyelitis</li><li>Meningitis</li><li>Hospital Acquired Staphylococcus Aureus Pneumonia</li></ul></div></li>
                             </ul>
                         </li>
@@ -169,17 +169,17 @@
                                 <li>Traditional Goal Peak varies by indication:  <i onclick="moreinfo('infoagpk','show');" class="fa fa-info-circle"></i>
                                     <div id="infoagpk" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infoagpk','hide');"></i>
                                         <div class='pure-g'>
-                                            <div class='pure-u-1-2'>Urinary Tract Infections:</div><div class='pure-u-1-2'><b>4-6 mg/L</b></div>
-                                            <div class='pure-u-1-2'>Bacteremia:</div><div class='pure-u-1-2'><b>6-8 mg/L</b></div>
-                                            <div class='pure-u-1-2'>Skin and Soft Tissue:</div><div class='pure-u-1-2'><b>6-8 mg/L</b></div>
-                                            <div class='pure-u-1-2'>Serious Infections:</div><div class='pure-u-1-2'><b>6-8 mg/L</b></div>
-                                            <div class='pure-u-1-2'>Pneumonia:</div><div class='pure-u-1-2'><b>8-10 mg/L</b></div>
-                                            <div class='pure-u-1-2'>Meningitis:</div><div class='pure-u-1-2'><b>8-10 mg/L</b></div>
-                                            <div class='pure-u-1-2'>Life Threatening Infections:</div><div class='pure-u-1-2'><b>8-10 mg/L</b></div>
+                                            <div class='pure-u-1-2'>Urinary Tract Infections:</div><div class='pure-u-1-2'><b>4&ndash;6 mg/L</b></div>
+                                            <div class='pure-u-1-2'>Bacteremia:</div><div class='pure-u-1-2'><b>6&ndash;8 mg/L</b></div>
+                                            <div class='pure-u-1-2'>Skin and Soft Tissue:</div><div class='pure-u-1-2'><b>6&ndash;8 mg/L</b></div>
+                                            <div class='pure-u-1-2'>Serious Infections:</div><div class='pure-u-1-2'><b>6&ndash;8 mg/L</b></div>
+                                            <div class='pure-u-1-2'>Pneumonia:</div><div class='pure-u-1-2'><b>8&ndash;10 mg/L</b></div>
+                                            <div class='pure-u-1-2'>Meningitis:</div><div class='pure-u-1-2'><b>8&ndash;10 mg/L</b></div>
+                                            <div class='pure-u-1-2'>Life Threatening Infections:</div><div class='pure-u-1-2'><b>8&ndash;10 mg/L</b></div>
                                         </div>
                                     </div>
                                 </li>
-                                <li>Traditional Trough range is 0.5-2 mg/L. <i onclick="moreinfo('infoagtr','show');" class="fa fa-info-circle"></i>
+                                <li>Traditional Trough range is 0.5&ndash;2 mg/L. <i onclick="moreinfo('infoagtr','show');" class="fa fa-info-circle"></i>
                                     <div id="infoagtr" class="info-hidden"><i class="fa fa-times info-close" onclick="moreinfo('infoagtr','hide');"></i>
                                         Use 1 mg/L as your goal if unsure.
                                     </div>
@@ -189,17 +189,42 @@
                     </ul>
                 </div>
                 <div class="pure-hidden" id="calculatetab">
+                    <div class="info-hidden" id="newvanc1g">
+                        <h4><i class="fa fa-exclamation-circle"></i> Choose one of these options if within range.  If not, see below.</h4>
+                        <form class="pure-form pure-form-stacked">
+                            <div class="pure-g-r">
+                                <div class="pure-u-1-2">
+                                    <button class="pure-button pure-button-secondary pure-input-1">1000 mg every 12 hours<br>peak = <output class="math-result" id="vnpk12">N/A</output> trough = <output class="math-result" id="vntr12">N/A</output></button>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <button class="pure-button pure-button-tertiary pure-input-1">1000 mg every 24 hours<br>peak = <output class="math-result" id="vnpk24">N/A</output> trough = <output class="math-result" id="vntr24">N/A</output></button>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <button class="pure-button pure-button-secondary pure-input-1">1000 mg every 36 hours<br>peak = <output class="math-result" id="vnpk36">N/A</output> trough = <output class="math-result" id="vntr36">N/A</output></button>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    <button class="pure-button pure-button-tertiary pure-input-1">1000 mg every 48 hours<br>peak = <output class="math-result" id="vnpk48">N/A</output> trough = <output class="math-result" id="vntr48">N/A</output></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <form class="pure-form pure-form-stacked">
                         <fieldset>
                             <legend>Calculated Dosing</legend>
                             <div class="pure-g-r">
                                 <div class="pure-u-1-2">
                                     <label for="newcalcdose">Dose (mg)</label>
-                                    <input class="pure-input-1" type="text" id="newcalcdose" placeholder="Dose" readonly>
+                                    <input class="pure-input-1" type="number" id="newcalcdose" placeholder="Dose" step="1" oninput="PredictLevels();">
                                 </div>
                                 <div class="pure-u-1-2">
                                     <label for="newcalcfreq">Frequency (hours)</label>
-                                    <input class="pure-input-1" type="text" id="newcalcfreq" placeholder="Frequency" readonly>
+                                    <input class="pure-input-1" type="number" id="newcalcfreq" placeholder="Frequency" step="12" oninput="PredictLevels();">
+                                </div>
+                                <div class="pure-u-1-2">
+                                    Predicted Peak: <output class="math-result" id="newcalcpk"></output>
+                                </div>
+                                <div class="pure-u-1-2">
+                                    Predicted Trough: <output class="math-result" id="newcalctr"></output>
                                 </div>
                             </div>
                         </fieldset>
